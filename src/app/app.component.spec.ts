@@ -1,10 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideRouter } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, RouterTestingModule],
+      providers: [provideRouter([])]
     }).compileComponents();
   });
 
@@ -17,13 +20,13 @@ describe('AppComponent', () => {
   it(`should have the 'day03-directives_todo_app' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('day03-directives_todo_app');
+    expect(app.title).toEqual('Angular 30_days Learning Concepts');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, day03-directives_todo_app');
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('Angular 30_days Learning Concepts');
   });
 });

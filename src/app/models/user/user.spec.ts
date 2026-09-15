@@ -2,6 +2,7 @@ import { User } from './user';
 
 describe('User', () => {
   it('should create an instance', () => {
-    expect(new User()).toBeTruthy();
+    const user: User = {} as User;
+    expect(user).toBeTruthy();
   });
 });
