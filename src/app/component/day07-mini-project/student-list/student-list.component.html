@@ -1,0 +1,56 @@
+<div style="max-width: 600px; margin: 30px auto; font-family: Arial, sans-serif; padding: 0 15px;">
+    <h2 style="color: #222; border-bottom: 2px solid #333; padding-bottom: 8px;">Students List</h2>
+
+    @if (students.length === 0) {
+        <p style="color: #777; font-style: italic;">No current students registered in the repository list.</p>
+    }
+
+    <!-- @for (item of students; track item.id) {
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; border: 1px solid #eaeaea; margin-bottom: 8px; padding: 12px; border-radius: 4px;">
+            <div>
+                <div style="font-weight: bold; color: #111;">{{ item.name }} <span style="font-weight: normal; font-size: 0.85em; background: #e0e0e0; padding: 2px 6px; border-radius: 10px; margin-left: 5px;">{{ item.age }}</span></div>
+                <div style="font-size: 0.9em; color: #555; margin-top: 4px;">{{ item.dateOfBirth }}</div>
+                <div style="font-size: 0.9em; color: #555; margin-top: 4px;">{{ item.email }}</div>
+                <div style="font-size: 0.9em; color: #555; margin-top: 4px;">{{ item.contactNumber }}</div>
+                <div style="font-size: 0.9em; color: #555; margin-top: 4px;">{{ item.gender }}</div>
+
+            </div>
+            <div>
+                <button (click)="onSelectEdit(item)" style="background: #0056b3; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; margin-right: 6px;">Modify</button>
+                <button (click)="onDeleteStudent(item.id)" style="background: #c82333; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px;">Delete</button>
+            </div>
+        </div>
+    } -->
+    @for (item of students; track item.id) {
+        <table border="3">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Age</th>
+                    <th>Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.gender }}</td>
+                    <td>{{ item.dateOfBirth }}</td>
+                    <td>{{ item.age }}</td>
+                    <td>{{ item.contactNumber }}</td>
+                    <div>
+                        <button (click)="onSelectEdit(item)" style="background: #0056b3; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; margin-right: 6px;">Modify</button>
+                        <button (click)="onDeleteStudent(item.id)" style="background: #c82333; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px;">Delete</button>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    }
+    
+
+    <!-- Nested Form Component Instance acting as a child interface -->
+    <app-student-form [selectedStudent]="editingStudent" (studentAdded)="onSubmit($event)"></app-student-form>
+</div>

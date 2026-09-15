@@ -1,0 +1,46 @@
+<div class="editor-container">
+    <!-- Editor Form -->
+    <div class="form-section">
+        <h3>Edit Profile</h3>
+
+        <div class="form-group">
+            <label>Username:</label>
+            <!-- TWO-WAY BINDING: Updates the class and template simultaneously -->
+            <input type="text" [(ngModel)]="userName" />
+        </div>
+
+        <div class="form-group">
+            <label>Email:</label>
+            <!-- TWO-WAY BINDING: Syncs data dynamically while typing -->
+            <input type="email" [(ngModel)]="email" />
+        </div>
+
+        <div class="form-group">
+            <label>Age:</label>
+            <!-- TWO-WAY BINDING: Numeric data sync -->
+            <input type="number" [(ngModel)]="age" />
+        </div>
+
+        <div class="button-group">
+            <!-- EVENT BINDING: Executes methods on user interactions -->
+            <button (click)="resetFields()">Clear Fields</button>
+            <button (click)="saveProfile()">Save Changes</button>
+        </div>
+    </div>
+
+    <!-- === PART 2: LIVE PREVIEW (THE CHALLENGE) === -->
+    <div class="preview-section">
+        <h3>Live Preview</h3>
+        <!-- PROPERTY BINDING: Dynamically toggles CSS class based on boolean state -->
+        <div class="profile-card" [class.saved-border]="isSaved">
+        
+        <!-- INTERPOLATION: Renders the current class data onto the view live -->
+        <p><strong>Username:</strong> {{ userName || 'Not Provided' }}</p>
+        <p><strong>Email:</strong> {{ email || 'Not Provided' }}</p>
+        <p><strong>Age:</strong> {{ age }}</p>
+        
+        <!-- PROPERTY BINDING: Controls visibility based on state -->
+        <span [hidden]="!isSaved" class="badge">✓ Status: Saved</span>
+        </div>
+    </div>
+</div>

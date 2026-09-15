@@ -1,0 +1,19 @@
+.counter-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.display-value {
+    font-size: 3rem;
+    color: #333;
+}
+
+.button-group button {
+    margin: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+<div class="todo-app">
+    <h2>My Angular 19 Todo List</h2>
+
+    <app-todo-form (todoSubmit)="addTodo($event)" />
+
+    @if (todos().length === 0) {
+    <p>All done! Nothing to display.</p>
+    }
+
+    <ul>
+    @for (todo of todos(); track todo.id) {
+        <li>
+        <input type="checkbox" [(ngModel)]="todo.isCompleted" />
+        
+        <!-- ngStyle evaluates an object expression to assign real-time CSS rules -->
+        <!-- ngClass dynamically applies conditional class names -->
+        <span 
+            [ngStyle]="{ 'color': todo.isCompleted ? 'green' : 'red' }"
+            [ngClass]="{ 'is-completed': todo.isCompleted, 'is-pending': !todo.isCompleted }"
+        >
+            @if (todo.isCompleted) { ✔ } @else { ❌ }
+            {{ todo.title }}
+        </span>
+
+        <button (click)="deleteTask(todo.id)">
+            Delete
+        </button>
+        </li>
+    }
+    </ul>
+</div>

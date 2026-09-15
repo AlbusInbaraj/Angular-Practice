@@ -1,0 +1,24 @@
+<div style="max-width: 600px; margin: 30px auto; font-family: Arial, sans-serif; padding: 0 15px;">
+    <h2 style="color: #222; border-bottom: 2px solid #333; padding-bottom: 8px;">Users List</h2>
+    
+    <!-- List Records Render UI Panel -->
+    @if (users.length === 0) {
+    <p style="color: #777; font-style: italic;">No current users registered in the repository list.</p>
+    }
+    
+    @for (item of users; track item.id) {
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; border: 1px solid #eaeaea; margin-bottom: 8px; padding: 12px; border-radius: 4px;">
+            <div>
+            <div style="font-weight: bold; color: #111;">{{ item.name }} <span style="font-weight: normal; font-size: 0.85em; background: #e0e0e0; padding: 2px 6px; border-radius: 10px; margin-left: 5px;">{{ item.role }}</span></div>
+            <div style="font-size: 0.9em; color: #555; margin-top: 4px;">{{ item.email }}</div>
+            </div>
+            <div>
+            <button (click)="onSelectEdit(item)" style="background: #0056b3; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; margin-right: 6px;">Modify</button>
+            <button (click)="onDeleteUser(item.id)" style="background: #c82333; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px;">Delete</button>
+            </div>
+        </div>
+    }
+
+    <!-- Nested Form Component Instance acting as child interface -->
+    <app-user-form [selectedUser]="editingUser" (saveUser)="onProcessUpsert($event)" />
+</div>

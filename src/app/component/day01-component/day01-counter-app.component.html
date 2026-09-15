@@ -1,0 +1,15 @@
+<main>
+  <h1>Counter App</h1>
+  <p>Standalone Angular application ready for development.</p>
+  <div class="counter-container">
+    <!-- Interpolation: Reads data out to the class for the count property -->
+    <h1 class="display-value" style="display: center;">{{ count }}</h1>
+    
+    <div class="button-group">
+        <!-- Event Binding: It send a action to the class -->        
+        <button (click)="decrementCount()">Decrement</button>
+        <button (click)="resetCount()">Reset</button>
+        <button (click)="incrementCount()">Increment</button>
+    </div>
+  </div>
+</main>

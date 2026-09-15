@@ -1,0 +1,38 @@
+<p>{{ 'day06-custom-pipe works!' | uppercase }} </p>
+<p>{{ 'HELLO WORLD' | lowercase }}</p> <!-- Outputs: hello world -->
+<p>{{ 'john doe' | titlecase }}</p>   <!-- Outputs: John Doe -->
+
+<!-- Default format (mediumDate: MMM d, y) -->
+<p>Default: {{ today | date }}</p>
+
+<!-- Using Predefined Options -->
+<p>Short: {{ today | date:'short' }}</p>         <!-- M/d/yy, h:mm a -->
+<p>Medium Date: {{ today | date:'mediumDate' }}</p> <!-- MMM d, y -->
+<p>Long Date: {{ today | date:'longDate' }}</p>     <!-- MMMM d, y -->
+
+<!-- Using Custom Format Strings -->
+<p>Custom 1: {{ today | date:'dd/MM/yyyy' }}</p>   <!-- 04/08/2026 -->
+<p>Custom 2: {{ today | date:'MMMM d, y, h:mm a' }}</p> <!-- August 4, 2026, 7:58 PM -->
+<p>Custom 3: {{ today | date:'EEEE, LLL d' }}</p>    <!-- Tuesday, Aug 4 -->
+
+<p>Birthday: {{ Birthday | date: 'shortDate' }}</p>
+
+
+// custom pipe
+<p>{{ 'Angular' | reverseString }}</p>
+<p>{{ 'hello world' | reverseString }}</p>
+<p>{{ 'Angular is awesome' | reverseString }}</p>
+
+<!-- Employee ID Pipe -->
+
+<!-- Single Employee IDs -->
+<p>{{ 1 | employeeId }}</p>
+<p>{{ 23 | employeeId }}</p>
+<p>{{ '456' | employeeId }}</p>
+
+<!-- Inside a loop -->
+<ul>
+  <!-- <li *ngFor="let id of employeeIds">
+    {{ id | employeeId }}
+  </li> -->
+</ul>

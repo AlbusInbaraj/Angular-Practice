@@ -1,0 +1,39 @@
+name: Angular CI Pipeline
+
+# Trigger the workflow on pushes or pull requests to the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # 👇 This adds the daily scheduled trigger
+  schedule:
+    - cron: '0 2 * * *' 
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+    # 1. Check out the repository code
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Set up the Node.js environment
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.20.0' # Use your project's Node version
+        cache: 'npm'       # Caches npm dependencies for faster builds
+
+    # 3. Clean install project dependencies
+    - name: Install Dependencies
+      run: npm ci
+
+    # 4. Run automated tests in headless mode
+    - name: Run Tests
+      run: npm run test:ci
+
+    # 5. Build the production application
+    - name: Build Application
+      run: npm run build --configuration=production

@@ -1,0 +1,11 @@
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    padding: 8px 16px;
+}
+
+.active-route {
+    color: #007bff;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+}

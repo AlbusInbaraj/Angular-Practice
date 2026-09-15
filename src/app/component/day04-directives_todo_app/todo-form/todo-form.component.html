@@ -1,0 +1,16 @@
+<form [formGroup]="todoForm" (ngSubmit)="submitForm()" class="todo-form">
+    <input type="text" formControlName="title" placeholder="Enter a new task..." />
+    <button type="submit" [disabled]="todoForm.invalid">Add Task</button>
+
+    <!-- Inline Form Validation using Angular 19 Control Flow -->
+    @if (todoForm.get('title')?.touched && todoForm.get('title')?.invalid) {
+    <div class="error-msg">
+        @if (todoForm.get('title')?.errors?.['required']) {
+        <small>Task title cannot be empty.</small>
+        }
+        @if (todoForm.get('title')?.errors?.['minlength']) {
+        <small>Task must be at least 3 characters long.</small>
+        }
+    </div>
+    }
+</form>

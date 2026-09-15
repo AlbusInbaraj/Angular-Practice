@@ -1,3 +1,61 @@
+## Angular Practice topic by topics
+This is for the 30 days to practice each topics particularly.
+
+# Explain Folder Structure
+
+components/: Houses individual components, each with its own .ts, .html, .css, and .spec.ts files.
+services/: Contains reusable services for handling business logic and API calls.
+models/: Stores TypeScript classes or interfaces for defining data structures.
+directives/: Includes custom directives for DOM manipulation.
+pipes/: Contains custom pipes for data transformation.
+core/: Centralized services, guards, and interceptors used across the application.
+shared/: Shared components, directives, and modules used in multiple features.
+pages/: Organizes views and pages, grouping related components and templates.
+
+Sample:
+src/
+├── app/
+│ ├── components/
+│ │ ├── header/
+│ │ ├── footer/
+│ │ └── main/
+│ ├── services/
+│ │ ├── product.service.ts
+│ │ └── customer.service.ts
+│ ├── models/
+│ │ └── user.model.ts
+│ ├── directives/
+│ │ └── my-directive.directive.ts
+│ ├── pipes/
+│ │ └── custom.pipe.ts
+│ ├── core/
+│ │ ├── guards/
+│ │ ├── interceptors/
+│ │ └── services/
+│ ├── shared/
+│ │ ├── components/
+│ │ ├── directives/
+│ │ └── pipes/
+│ ├── pages/
+│ │ ├── home/
+│ │ └── about/
+│ ├── app.module.ts
+│ └── app.component.ts
+├── assets/
+│ ├── images/
+│ ├── fonts/
+│ └── i18n/
+├── environments/
+│ ├── environment.ts
+│ └── environment.prod.ts
+
+# Project Planning Days
+1. Components
+2. Data Binding
+3. Component Communications
+4. Directives - TodoApp
+5. Custom Directives
+
 # Day03DirectivesTodoApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
