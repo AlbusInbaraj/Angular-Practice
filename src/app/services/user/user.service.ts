@@ -23,7 +23,7 @@ export class UserService {
   public getData(): Observable<User[]> {
     return of(this.localData);
   }
-
+  
   public addUser(newUser: Omit<User, 'id'>): void {
     const nextId = this.localData.length > 0 ? Math.max(...this.localData.map(u => u.id)) + 1 : 1;
     this.localData.push({ ...newUser, id: nextId });

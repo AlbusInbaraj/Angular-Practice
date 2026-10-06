@@ -2,12 +2,18 @@
     <a routerLink="/" routerLinkActive="active-route" [routerLinkActiveOptions]="{ exact : true}" class="nav-link">Home</a>
     <a routerLink="/todo" routerLinkActive="active-route" [routerLinkActiveOptions]="{ exact : true}" class="nav-link">Todo App</a>
     <a routerLink="/user" routerLinkActive="active-route" [routerLinkActiveOptions]="{ exact : true}" class="nav-link">Users</a>
+    <p>🛒 Cart Items: {{ itemCount }}</p>
 </nav>
 
 <hr>
 
 <router-outlet />
 
+<app-product>Product</app-product>
+<!-- <app-search-bar-observables></app-search-bar-observables> -->
+<!-- <app-post-list-httpclient></app-post-list-httpclient> -->
+<!-- <app-register-reactiveform></app-register-reactiveform> -->
+<!-- <app-day08-login-template-driven-form></app-day08-login-template-driven-form> -->
 <!-- <app-day01-counter-app></app-day01-counter-app> -->
 <!-- <app-day02-profile-editor></app-day02-profile-editor> -->
 <!-- <app-user-list></app-user-list> -->

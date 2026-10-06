@@ -2,11 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { provideRouter } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { RegisterReactiveformComponent } from './component/register-reactiveform/register-reactiveform.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, RouterTestingModule],
+      imports: [AppComponent, RouterTestingModule, CommonModule, RegisterReactiveformComponent, ReactiveFormsModule],
       providers: [provideRouter([])]
     }).compileComponents();
   });

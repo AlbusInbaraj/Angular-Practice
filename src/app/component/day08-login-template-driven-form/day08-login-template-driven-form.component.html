@@ -1,0 +1,34 @@
+<div class="login-container">
+    <h2>Account Login</h2>
+    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" novalidate>
+        <!-- Email Field -->
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" [(ngModel)]="loginData.email" #emailCtrl="ngModel" required placeholder="Enter your Email">
+
+            <!-- Error Message for Email -->
+            @if (emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)) {
+                <div class="error-msg">
+                    @if (emailCtrl.errors?.['required']) { <span>Email is required.</span> }
+                    @if (emailCtrl.errors?.['email']) { <span>Please enter a valid email.</span> }
+                </div>
+            }
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" name="password" id="password" [(ngModel)]="loginData.password" #passwordCtrl="ngModel" placeholder="Enter your password" minlength="6" required>
+
+            <!-- Error Message for Password -->
+            @if (passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)) {
+                <div class="error-msg">
+                    @if (passwordCtrl.errors?.['required']) { <span>Password is required.</span> }
+                    @if (passwordCtrl.errors?.['minlength']) { <span>Password must be at least 6 characters.</span> }
+                </div>
+            }
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid">Sign In</button>
+    </form>
+</div>

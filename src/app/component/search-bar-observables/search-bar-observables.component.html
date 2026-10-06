@@ -1,0 +1,36 @@
+<!-- <div class="search-container">
+  <h2>Search Todos</h2>
+  
+  Input box tracking keyup events
+  <input 
+    type="text" 
+    placeholder="Type to search todos..." 
+    (keyup)="onSearch($event)" 
+    class="search-input"
+  />
+
+  The async pipe automatically subscribes and unsubscribes from filteredTodos$
+  <div *ngIf="filteredTodos$ | async as todos; else initialOrLoading">
+    <ul class="todo-list" *ngIf="todos.length > 0; else noResults">
+      <li *ngFor="let todo of todos" [class.completed]="todo.completed">
+        <span class="status-badge">{{ todo.completed ? '✓' : '✗' }}</span>
+        {{ todo.title }}
+      </li>
+    </ul>
+    
+    <ng-template #noResults>
+      <p class="info-text">No matches found for your search query.</p>
+    </ng-template>
+  </div>
+
+  fallback text displayed before a user initiates a search
+  <ng-template #initialOrLoading>
+    <p class="info-text">Start typing in the input field to find matching todo tasks.</p>
+  </ng-template>
+</div> -->
+<input [formControl]="searchInput" placeholder="Type to search movies...">
+
+<ul>
+  <!-- The async pipe handles subscribing and updating the UI automatically -->
+  <li *ngFor="let result of (filteredTodos | async)">{{ result }}</li>
+</ul>
